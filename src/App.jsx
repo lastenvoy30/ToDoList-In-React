@@ -16,7 +16,7 @@ function App() {
     //   dueDate: "4/10/2023",
     // },
     // {
-    //   name: "Like this video",
+    //   name: "Go to gym",
     //   dueDate: "right now",
     // },
   ];
@@ -24,12 +24,18 @@ function App() {
   const [todoItems , setTodoItems] = useState(initialTodoItems);
 
   const handleNewItem = (itemName , itemDueDate) => {
-    console.log(`new item added: ${itemName} date: ${itemDueDate}`);
+    // console.log(`new item added: ${itemName} date: ${itemDueDate}`);
     const newTodoItems = [
       ...todoItems , 
       { name : itemName , dueDate : itemDueDate} ,
     ];
     setTodoItems(newTodoItems)
+  };
+
+  const handleDeleteItem = (todoItemName) => {
+    // console.log(`Item deleted: ${todoItemName}` );
+    const newTodoItems = todoItems.filter((item) => item.name !== todoItemName );
+    setTodoItems(newTodoItems);
   }
 
   return (
@@ -37,7 +43,7 @@ function App() {
       <AppName />
       <AddTodo onNewItem={handleNewItem} />
       {todoItems.length === 0 && <WelcomeMessage></WelcomeMessage>}
-      <TodoItems todoItems={todoItems}></TodoItems>
+      <TodoItems todoItems={todoItems} onDeleteClick = {handleDeleteItem}></TodoItems>
     </center>
   );
 }
