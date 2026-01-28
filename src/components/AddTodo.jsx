@@ -16,17 +16,16 @@ function AddTodo({onNewItem}) {
     setDueDate(event.target.value);
   }
 
-  const handleAddButtonClicked = () => {
+  const handleAddButtonClicked = (event) => {
+    event.preventDefault();
     onNewItem(todoName , dueDate);
     setDueDate("");
     setTodoName("");
   }
 
-  
-
   return (
     <div className="container text-center">
-      <div className="row kg-row">
+      <form className="row kg-row">
         <div className="col-6">
           <input type="text" placeholder="Enter Todo Here" value={todoName} onChange={handleNameChange}/>
         </div>
@@ -38,7 +37,7 @@ function AddTodo({onNewItem}) {
             <IoIosAddCircle />
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
