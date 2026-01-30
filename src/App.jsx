@@ -7,18 +7,18 @@ import { useState } from "react";
 
 function App() {
   const initialTodoItems = [
-    // {
-    //   name: "Buy Milk",
-    //   dueDate: "4/10/2023",
-    // },
-    // {
-    //   name: "Go to College",
-    //   dueDate: "4/10/2023",
-    // },
-    // {
-    //   name: "Go to gym",
-    //   dueDate: "right now",
-    // },
+    {
+      name: "Buy Milk",
+      dueDate: "4/10/2023",
+    },
+    {
+      name: "Go to College",
+      dueDate: "4/10/2023",
+    },
+    {
+      name: "Go to gym",
+      dueDate: "right now",
+    }
   ];
 
   const [todoItems , setTodoItems] = useState(initialTodoItems);
